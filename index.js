@@ -1,5 +1,6 @@
 const myDeck =  {
   deck : [],
+  drawnCards : [],
   suits : ['hearts', 'spades', 'diamonds', 'clubs'],
   values : '2,3,4,5,6,7,8,9,10,J,Q,K,A',
   initializeDeck() {
@@ -11,7 +12,16 @@ const myDeck =  {
     }
   },
   drawCard(){
-    return this.deck.pop();
+    const card = this.deck.pop();
+    this.drawnCards.push(card);
+    return card;
+  },
+  drawMulitiple(numCards){
+    const cards = [];
+    for(let i = 0; i < numCards; i++){
+      cards.push(this.drawCard());
+    }
+    return cards;
   }
   
 }
